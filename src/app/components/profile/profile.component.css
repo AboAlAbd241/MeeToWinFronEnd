@@ -1,0 +1,18 @@
+.gradient-custom-2 {
+  background: #f8f9fa;
+  }
+
+  .dark-overlay{
+    /* background-color: rgba(117, 114, 114, 0.7); */
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+  }
+
+  .uploader-status ::ng-deep .mat-progress-spinner circle, .mat-spinner circle {
+    stroke: #c21818;
+  }

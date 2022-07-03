@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+    <title>Login </title>
+  </head>
+  <body>
+
+
+  <div class="d-lg-flex half">
+    <div class="bg order-1 order-md-2" style="background-image: url('assets/img/americanball.jpg');"></div>
+    <div class="contents order-2 order-md-1">
+
+      <div class="container">
+         <app-navbar [fromLoginPage]="false"></app-navbar>
+        <div class="row align-items-center justify-content-center">
+          <div class="col-md-7">
+            <div class="mb-4">
+                <div style="background-image: url('assets/img/meetLogo.png');"></div>
+              <h1>Sign In</h1>
+              <p class="mb-4">Meet people to win and get new friends</p>
+            </div>
+            <form >
+              <div class="form-group first">
+                <!-- <label for="username">Username</label> -->
+                <input type="text" placeholder="Username" name="username" [(ngModel)]="credential.email" class="form-control" id="username" required>
+
+              </div>
+              <div class="form-group last mb-3">
+                <!-- <label for="password">Password</label> -->
+                <input type="password" placeholder="Password" name="password" [(ngModel)]="credential.password" class="form-control" id="password" required>
+
+              </div>
+
+              <div class="d-flex mb-5 align-items-center">
+                <label class="control control--checkbox mb-0"><span class="caption">Remember me</span>
+                  <input type="checkbox" checked="checked"/>
+                  <div class="control__indicator"></div>
+                </label>
+                <span class="ms-auto p-2"><a href="#" class="forgot-pass">Forgot Password</a></span>
+              </div>
+
+              <input type="submit" (click)="onLogin()" value="Log In" class="btn btn-block btn-danger">
+
+              <span class="d-block text-center my-4 text-muted">&mdash; or &mdash;</span>
+
+              <div class="social-login">
+                <a href="#" class="facebook btn d-flex justify-content-center align-items-center">
+                  <span class="icon-facebook mr-3"></span> Login with Facebook
+                </a>
+                <a (click)="openGoogle()" class="google btn d-flex justify-content-center align-items-center">
+                  <span class="icon-google mr-3"></span> Login with  Google
+                </a>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+
+  </body>
+</html>

@@ -1,0 +1,44 @@
+<app-navbar></app-navbar>
+<div class="img js-fullheight" style="background-image: url(assets/img/createEvent.jpg);">
+  <section class="ftco-section" style="background: #0000008f;">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-6 text-center mb-5">
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-md-6 col-lg-4">
+        <div class="login-wrap p-0">
+          <form action="#" class="signin-form">
+            <div class="form-group">
+              <input type="text" class="form-control" [(ngModel)]="eventInfo.title" name="title" placeholder="Event Title" required>
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control" name="des" [(ngModel)]="eventInfo.description" placeholder="Event Description" required>
+            </div>
+            <div class="form-group">
+              <input type="number" class="form-control" name="num" [(ngModel)]="eventInfo.numOfPlayers" placeholder="Number Of Player" required>
+            </div>
+            <div class="form-group">
+              <input type="number" class="form-control" name="price" [(ngModel)]="eventInfo.price" placeholder="Price" required>
+            </div>
+            <div class="form-group">
+              <input type="datetime-local" class="form-control" [(ngModel)]="eventInfo.date" name="date" placeholder="Date" required>
+            </div>
+            <div class="form-group">
+              <input type="number" class="form-control" [(ngModel)]="eventInfo.duration" name="duration" placeholder="Duration ex 90" required>
+            </div>
+            <!-- <div class="form-group">
+              <input id="password-field" type="text" class="form-control" placeholder="Password" required>
+              <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
+            </div> -->
+            <div class="form-group">
+              <button type="submit" class="form-control btn btn-primary submit px-3" (click)="createEvent()" >Create Event</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</div>

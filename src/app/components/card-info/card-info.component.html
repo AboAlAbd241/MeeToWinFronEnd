@@ -1,0 +1,82 @@
+<app-navbar></app-navbar>
+<div class="uploader-status" *ngIf="resourcesLoaded1 === false && resourcesLoaded2 === false ">
+  <mat-spinner class="dark-overlay d-flex justify-content-center" [color]="'#ff0000'" mode="indeterminate">
+  </mat-spinner>
+</div>
+<div class="containar" *ngIf="resourcesLoaded1 === true && resourcesLoaded2 === true ">
+
+  <div class="row column-sm no-gutters">
+
+    <!-- this is for users registered  -->
+
+      <div class="col-sm-0 col-md-6 col-lg-3 mt-3 ">
+        <div class=" d-flex align-items-center flex-column mb-3 ">
+                  <h1>Users</h1>
+                  <cdk-virtual-scroll-viewport appendOnly itemSize="50" class="pt-3 pe-3 example-viewport">
+                    <ng-container *ngIf="subscribedUsers.length >0" >
+                    <ng-container *ngFor="let user of subscribedUsers">
+                        <div class="card mb-3"  (click)="goToProfile(user?.id)">
+                            <div class="row g-0">
+                              <div class="col-md-2 mt-3">
+                                <img src="assets/img/defaultImage.png" width="50px" class="img-fluid rounded-circle" alt="...">
+                              </div>
+                              <div class="col-md-10">
+                                <div class="card-body">
+                                  <h3 class="card-title">{{user?.name}}  </h3>
+                                </div>
+                              </div>
+                            </div>
+                        </div>
+                    </ng-container>
+                  </ng-container>
+                </cdk-virtual-scroll-viewport>
+        </div>
+      </div>
+
+
+    <!-- this div for card info in the center -->
+    <div class="col-sm-2 col-md-6 col-lg-6 mt-3">
+      <div class="d-flex align-items-center flex-column">
+        <img src="assets/img/football.jpg" width="500px"  alt="">
+        <h1 class="mt-2">{{eventDetails?.title}} </h1>
+        <p> {{eventDetails?.description}} </p>
+        <button type="button" *ngIf="!isSubscribed" class="btn btn-outline-danger" (click)="enrollUser()">Enroll Me</button>
+        <button type="button" *ngIf="isSubscribed" class="btn btn-outline-danger" (click)="unEnrollUser()" >Unenroll Me</button>
+      </div>
+    </div>
+
+<!-- this the information in the right of page  -->
+    <div class="col-sm-0 col-md-0 col-lg-3 mt-3">
+      <h1>More Information</h1>
+      <div class="row">
+        <div class="col">
+          <h1>Location</h1>
+        </div>
+        <div class="col"><button type="button" class="btn btn-outline-info">Info</button></div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <h1>Price</h1>
+        </div>
+        <div class="col">{{eventDetails?.price}} JD</div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+        <h1>Available</h1>
+        </div>
+        <div class="col">{{eventDetails?.numOfPlayers}} Player</div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <h1>Duration</h1>
+        </div>
+        <div class="col">{{eventDetails?.duration}} min</div>
+      </div>
+
+    </div>
+  </div>
+
+</div>

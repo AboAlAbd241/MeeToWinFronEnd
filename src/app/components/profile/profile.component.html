@@ -1,0 +1,67 @@
+<app-navbar></app-navbar>
+<div class="uploader-status" *ngIf="resourcesLoaded === false">
+  <mat-spinner class="dark-overlay d-flex justify-content-center" [color]="'#ff0000'" mode="indeterminate">
+  </mat-spinner>
+</div>
+<section class="h-100 gradient-custom-2" *ngIf="resourcesLoaded === true">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col col-lg-9 col-xl-7">
+        <div class="card">
+          <div class="rounded-top text-white d-flex flex-row" style="background-color: rgb(131 28 28); height:200px;">
+            <div class="ms-4 mt-5 d-flex flex-column" style="width: 150px;">
+              <img src="assets/img/defaultImage.png"
+                alt="Generic placeholder image" class="img-fluid img-thumbnail mt-4 mb-2"
+                style="width: 150px; z-index: 1">
+                <div class="d-flex start-content-between" style="width: 300px;">
+                  <button *ngIf="userInfo?.isMyProfile" type="button" class="btn btn-outline-dark" data-mdb-ripple-color="dark"
+                  style="z-index: 1;">
+                  Edit profile
+                </button>
+
+                <button *ngIf="!userInfo?.isMyProfile"  type="button" class="btn btn-outline-dark" data-mdb-ripple-color="dark"
+                  style="z-index: 1; margin-left: 10px;">
+                  Add Freind
+                </button>
+
+                <button *ngIf="!userInfo?.isMyProfile"  type="button" (click)="openChat()" class="btn btn-outline-dark" data-mdb-ripple-color="dark"
+                  style="z-index: 1; margin-left: 10px;">
+                  Chat
+                </button>
+
+              </div>
+
+            </div>
+            <div class="ms-3" style="margin-top: 130px;">
+              <h2>{{userInfo?.name}}</h2>
+
+            </div>
+          </div>
+          <div class="p-4 text-black" style="background-color: #f8f9fa;">
+            <div class="d-flex justify-content-end text-center py-1">
+              <div>
+                <p class="mb-1 h5">{{createdEvent?createdEvent :0}}</p>
+                <p class="small text-muted mb-0">Event Created</p>
+              </div>
+              <div class="px-3">
+                <p class="mb-1 h5">{{userInfo?.rating ? userInfo.rating :0 }}/5</p>
+                <p class="small text-muted mb-0">Rating</p>
+              </div>
+            </div>
+          </div>
+          <div class="card-body p-4 text-black">
+            <div class="mb-5">
+              <p class="lead fw-normal mb-1">About</p>
+              <div class="p-4" style="background-color: #f8f9fa;">
+                <p class="font-italic mb-1">{{userInfo?.about ? userInfo.about : "IM New HERE :)"}} </p>
+                <!-- <p class="font-italic mb-1">Lives in New York</p>
+                <p class="font-italic mb-0">Photographer</p> -->
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
